@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -6,14 +5,14 @@ public class soundManager : MonoBehaviour
 {
     public static soundManager Instance { get; private set; }
     
-    [SerializeField] private AudioResource bgm;
-    [SerializeField] public AudioResource walk;
-    [SerializeField] public AudioResource run;
-    [SerializeField] public AudioResource lightSwith;
-    [SerializeField] public AudioResource boxOpen;
-    [SerializeField] public AudioResource mirrorpush;
-    [SerializeField] public AudioResource itemPickUp;
-    [SerializeField] private AudioResource itemDrop;
+    [SerializeField] private AudioClip bgm;
+    [SerializeField] public AudioClip walk;
+    [SerializeField] public AudioClip run;
+    [SerializeField] public AudioClip lightSwith;
+    [SerializeField] public AudioClip boxOpen;
+    [SerializeField] public AudioClip mirrorpush;
+    [SerializeField] public AudioClip itemPickUp;
+    [SerializeField] private AudioClip itemDrop;
 
     [SerializeField] private GameObject playeraudio;
     [SerializeField] public GameObject lightaudio;
@@ -34,21 +33,21 @@ public class soundManager : MonoBehaviour
     {
         Instance = this;
         audioSource = GetComponent<AudioSource>();
-        audioSource.resource = bgm;
+        audioSource.clip = bgm;
         audioSource.Play();
         audioSource.loop = true;
         walkAudioSource = playeraudio.AddComponent<AudioSource>();
-        walkAudioSource.resource = walk;
+        walkAudioSource.clip = walk;
         runAudioSource = playeraudio.AddComponent<AudioSource>();
-        runAudioSource.resource = run;
+        runAudioSource.clip = run;
         box1AudioSource = box1audio.AddComponent<AudioSource>();
-        box1AudioSource.resource = boxOpen;
-        mirrorAudioSource = transform.AddComponent<AudioSource>();
-        mirrorAudioSource.resource = mirrorpush;
-        itemPickUpAudioSource = transform.AddComponent<AudioSource>();
-        itemPickUpAudioSource.resource = itemPickUp;
-        itemDropAudioSource = transform.AddComponent<AudioSource>();
-        itemDropAudioSource.resource = itemDrop;
+        box1AudioSource.clip = boxOpen;
+        mirrorAudioSource = gameObject.AddComponent<AudioSource>();
+        mirrorAudioSource.clip = mirrorpush;
+        itemPickUpAudioSource = gameObject.AddComponent<AudioSource>();
+        itemPickUpAudioSource.clip = itemPickUp;
+        itemDropAudioSource = gameObject.AddComponent<AudioSource>();
+        itemDropAudioSource.clip = itemDrop;
     }
 
     private void Update()

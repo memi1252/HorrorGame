@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Diagnostics.SymbolStore;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -58,14 +57,14 @@ public class monster : MonoBehaviour
                 player.Instance.gameObject.GetComponent<LookAtCamera>().enabled = true;
                 LookAtCamera.Instance.monster1 = LookAtCamera.Instance.monster2;
                 transform.GetComponent<SphereCollider>().enabled = false;
-                monsterGameObject.transform.GetChild(0).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(1).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(2).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(3).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(4).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(5).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(5).GetChild(0).AddComponent<BoxCollider>();
-                monsterGameObject.transform.GetChild(5).GetChild(1).AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(0).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(1).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(2).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(3).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(4).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(5).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(5).GetChild(0).gameObject.AddComponent<BoxCollider>();
+                monsterGameObject.transform.GetChild(5).GetChild(1).gameObject.AddComponent<BoxCollider>();
                 StartCoroutine(animatorOut());
                 StartCoroutine(changeMaterail());
                 StartCoroutine(diediedie());
@@ -102,12 +101,12 @@ public class monster : MonoBehaviour
             monsterGameObject.transform.GetChild(5).GetComponent<MeshRenderer>().material = dieMaterial;
             monsterGameObject.transform.GetChild(5).GetChild(0).GetComponent<MeshRenderer>().material = dieMaterial;
             monsterGameObject.transform.GetChild(5).GetChild(1).GetComponent<MeshRenderer>().material = dieMaterial;
-            monsterGameObject.transform.GetChild(0).AddComponent<Rigidbody>();
-            monsterGameObject.transform.GetChild(1).AddComponent<Rigidbody>();
-            monsterGameObject.transform.GetChild(2).AddComponent<Rigidbody>();
-            monsterGameObject.transform.GetChild(3).AddComponent<Rigidbody>();
-            monsterGameObject.transform.GetChild(4).AddComponent<Rigidbody>();
-            monsterGameObject.transform.GetChild(5).AddComponent<Rigidbody>();
+            monsterGameObject.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
+            monsterGameObject.transform.GetChild(1).gameObject.AddComponent<Rigidbody>();
+            monsterGameObject.transform.GetChild(2).gameObject.AddComponent<Rigidbody>();
+            monsterGameObject.transform.GetChild(3).gameObject.AddComponent<Rigidbody>();
+            monsterGameObject.transform.GetChild(4).gameObject.AddComponent<Rigidbody>();
+            monsterGameObject.transform.GetChild(5).gameObject.AddComponent<Rigidbody>();
             monsterGameObject.transform.GetChild(0).SetParent(null);
             monsterGameObject.transform.GetChild(0).SetParent(null);
             monsterGameObject.transform.GetChild(0).SetParent(null);
